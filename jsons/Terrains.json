@@ -15,7 +15,7 @@
 		]
 	},
 	{
-		"name": "Infested Waters",
+		"name": "Infected Waters",
 		"type": "Water",
 		"movementCost": 1,
 		"defenceBonus": -0.2,
@@ -45,8 +45,10 @@
             "Occurs at temperature between [-0.8] and [-0.7] and humidity between [0] and [0.6]",
             "Occurs at temperature between [-0.7] and [-0.6] and humidity between [0] and [0.4]",
             "Occurs at temperature between [-0.6] and [-0.5] and humidity between [0] and [0.2]",
+			"A Region is formed with at least [25]% [Spore Wall] tiles, with priority [4]",
 			"Considered [Undesirable] when determining start locations",
-			"Every [17] tiles with this terrain will receive a major deposit of a strategic resource."
+			"Every [17] tiles with this terrain will receive a major deposit of a strategic resource.",
+			"Units ending their turn on this terrain take [15] damage",
 		]
 	},
 	{
@@ -60,7 +62,171 @@
 			"Has an elevation of [4] for visibility calculations",
 			"Occurs in chains at high elevations",
 			"Always Fertility [+10] for Map Generation",
-			"Considered [Desirable] when determining start locations"
+			"Considered [Desirable] when determining start locations",
+			"[+5] Strength for cities built on this terrain",
+			"Every [17] tiles with this terrain will receive a major deposit of a strategic resource."
 		]
+	},
+	{
+		"name": "Highlands",
+		"type": "Land",
+		"movementCost": 1,
+		"RGB": [230, 230, 113],
+		"uniques": [
+			"Occurs at temperature between [-0.1] and [0.9] and humidity between [0] and [0.2]",
+            "Occurs at temperature between [0.1] and [0.8] and humidity between [0.2] and [0.3]",
+            "Occurs at temperature between [0.2] and [0.7] and humidity between [0.3] and [0.4]",
+            "Occurs at temperature between [0.4] and [0.6] and humidity between [0.4] and [0.5]",
+            "Occurs at temperature between [0.5] and [0.6] and humidity between [0.5] and [0.7]",
+			"[+1] to Fertility for Map Generation",
+			"A Region is formed with at least [25]% [Highlands] tiles, with priority [4]",
+			"Considered [Food] when determining start locations",
+			"Becomes [Swamp] when adjacent to [River]",
+			"Every [33] tiles with this terrain will receive a major deposit of a strategic resource.",
+		]
+	},
+	{
+		"name": "Rocks",
+		"type": "TerrainFeature",
+		"production": 1,
+		"movementCost": 2,
+		"overrideStats": false,
+		"defenceBonus": 0.1,
+		"RGB": [105, 125, 72],
+		"occursOn": [
+			"Ocean",
+			"Coast",
+			"Infected Waters",
+			"Highlands",
+		],
+		"uniques": [
+			"Rough terrain",
+			"Has an elevation of [2] for visibility calculations",
+			"Occurs in groups around high elevations",
+			"[+1] to Fertility for Map Generation",
+			"A Region is formed with at least [40]% [Rocks] tiles, with priority [5]",
+			"Base Terrain on this tile is not counted for Region determination",
+			"Considered [Production] when determining start locations",
+			"Every [22] tiles with this terrain will receive a major deposit of a strategic resource."
+		]
+	},
+	{
+		"name": "Forest", 
+		"type": "TerrainFeature",
+		"food": 1,
+		"movementCost": 2,
+		"overrideStats": true,
+		"unbuildable": true,
+		"defenceBonus": 0.15,
+		"occursOn": [
+			"Highlands",
+			"Spore Wall"
+		],
+		"uniques": [
+			"Vegetation",
+			"Provides a one-time bonus of [+50 Production] to the closest city when cut down <(modified by game speed)>",
+			"Rough terrain",
+			"Blocks line-of-sight from tiles at same elevation",
+			"[25]% Chance to be destroyed by nukes",
+			"A Region is formed with at least [30]% [Forest] tiles, with priority [3]",
+			"A Region is formed with at least [35]% [Forest] tiles and [Jungle] tiles, with priority [3]",
+			"A Region can not contain more [Jungle] tiles than [Forest] tiles",
+			"Considered [Food] when determining start locations",
+			"Every [33] tiles with this terrain will receive a major deposit of a strategic resource."
+		]
+	},
+	{
+		"name": "Jungle",
+		"type": "TerrainFeature",
+		"food": 1,
+		"movementCost": 2,
+		"overrideStats": true,
+		"unbuildable": true,
+		"defenceBonus": 0.15,
+		"occursOn": [
+			"Spore Wall",
+			"Mountain",
+			"Highlands",
+		],
+		"uniques": [
+			"Vegetation",
+			"Provides a one-time bonus of [+100 Production] to the closest city when cut down <(modified by game speed)>",
+			"Rough terrain",
+			"Blocks line-of-sight from tiles at same elevation",
+			"[15]% Chance to be destroyed by nukes",
+			"A Region is formed with at least [30]% [Jungle] tiles, with priority [2]",
+			"A Region is formed with at least [35]% [Jungle] tiles and [Forest] tiles, with priority [2]",
+			"A Region can not contain more [Forest] tiles than [Jungle] tiles",
+			"Considered [Desirable] when determining start locations",
+			"Considered [Food] when determining start locations",
+			"Every [33] tiles with this terrain will receive a major deposit of a strategic resource."
+		]
+	},
+	{
+		"name": "Ruins", 
+		"type": "TerrainFeature",
+		"science": 1,
+		"movementCost": 2,
+		"overrideStats": true,
+		"unbuildable": true,
+		"defenceBonus": 0.25,
+		"occursOn": [
+			"Highlands",
+		],
+		"uniques": [
+			"Urban area",
+			"Provides a one-time bonus of [+100 Production, +50 science] to the closest city when cut down <(modified by game speed)>",
+			"Rough terrain",
+			"Blocks line-of-sight from tiles at same elevation",
+			"[15]% Chance to be destroyed by nukes",
+			"A Region is formed with at least [30]% [Ruins] tiles, with priority [2]",
+			"Considered [Desirable] when determining start locations",
+			"Considered [Science] when determining start locations",
+			"Every [33] tiles with this terrain will receive a major deposit of a strategic resource."
+		]
+	},
+	{
+		"name": "Toxic Waste",
+		"type": "TerrainFeature",
+		"gold": -2,
+		"production": -2,
+		"food": -2,
+		"movementCost": 3,
+		"unbuildable": true,
+		"defenceBonus": -0.5,
+		"occursOn": [
+			"Ocean",
+			"Infected Waters",
+		],
+		"uniques": [
+			"Rare feature",
+			"Rough terrain",
+			"[-2] to Fertility for Map Generation",
+			"Every [9] tiles with this terrain will receive a major deposit of a strategic resource.",
+			"Units ending their turn on this terrain take [5] damage",
+		]
+	},
+	{
+		"name": "Spring",
+		"type": "TerrainFeature",
+		"gold": 1,
+		"occursOn": ["Mountain", "Highlands"],
+		"uniques": [
+			"Rare feature",
+			"Fresh water",
+			"Considered [Desirable] when determining start locations",
+			"Considered [Food] when determining start locations",
+			"Always Fertility [4] for Map Generation",
+			"Only [Water pump] improvements may be built on this tile"
+		]
+	},
+	{
+		"name": "Sunken Ruins",
+		"type": "TerrainFeature",
+		"movementCost": 2,
+		"production": 1,
+		"defenceBonus": 0.2,
+		"occursOn": ["Coast", "Infected Waters"],
+		"uniques": ["Rare feature", "Urban Area"]
 	},
 ]
