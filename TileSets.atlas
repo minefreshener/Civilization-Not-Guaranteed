@@ -752,7 +752,7 @@ TileSets/FantasyHex/Tiles/Flood plains
   orig: 32, 32
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/Forest
+TileSets/FantasyHex/Tiles/Rubble
   rotate: false
   xy: 684, 614
   size: 32, 32
@@ -899,14 +899,14 @@ TileSets/FantasyHex/Tiles/Jellyfish
   orig: 32, 28
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/Jungle
+TileSets/FantasyHex/Tiles/Ruins
   rotate: false
   xy: 164, 444
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/Lakes
+TileSets/FantasyHex/Tiles/Infested Waters
   rotate: false
   xy: 244, 448
   size: 32, 28
